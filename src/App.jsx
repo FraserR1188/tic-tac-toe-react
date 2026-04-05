@@ -64,19 +64,14 @@ function App() {
   }
 
   const hasDraw = gameTurns.length === 9 && !winner;
-
   function handleSelectSquare(rowIndex, colIndex) {
-    // setActivePlayer((currentActivePlayer) =>
-    //   currentActivePlayer === "X" ? "O" : "X",
-    // );
     setGameTurns((prevTurns) => {
       const currentPlayer = devriveActivePlayer(prevTurns);
 
-      const updatedTurns = [
-        { square: { rowIndex, col: colIndex }, player: activePlayer },
+      return [
+        { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
         ...prevTurns,
       ];
-      return updatedTurns;
     });
   }
 
